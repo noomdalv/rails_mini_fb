@@ -4,8 +4,8 @@ Microverse
 
 This is the 8th and Final Project of the Microverse Technical Curriculum at Microverse - @microverseinc
 
-    This project consists of building a Facebook clone using Rails 5, the requirements include:
-    user > friendships, posts,comments and likes modules and functionalities.
+    This project consists of building a Facebook clone using Rails 5, the requirements include
+    User [friendships, posts,comments, likes] modules and functionalities.
 
     The project was completed using Bootstrap, Devise, RSpec, Omniauth and PostgreSQL.
 
