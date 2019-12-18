@@ -1,8 +1,9 @@
-class PostsController < ApplicationController
-  before_action :set_post, only:[:show, :destroy]
+# frozen_string_literal: true
 
-  def new
-  end
+class PostsController < ApplicationController
+  before_action :set_post, only: %i[show destroy]
+
+  def new; end
 
   def create
     @post = Post.new(post_params)
@@ -15,8 +16,7 @@ class PostsController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
   def index
     @post = Post.new
@@ -24,11 +24,12 @@ class PostsController < ApplicationController
   end
 
   private
-    def set_post
-      @post = Post.find(params[:id])
-    end
-    def post_params
-      params.require(:post).permit(:body)
-    end
 
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
+  def post_params
+    params.require(:post).permit(:body)
+  end
 end
