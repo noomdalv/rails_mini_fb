@@ -1,0 +1,50 @@
+<main class="">
+  <div class="row">
+    <div class="col-md-3 profile-section">
+      <h1> This section is for user profile</h1>
+    </div>
+
+    <div class="col-md-6 bg-success post-section">
+      <div class="row">
+        <%= form_for @post do |f| %>
+          <div class="form-group">
+            <%= f.label :body %>
+            <%= f.text_area :body, class: 'form-control', placeholder: "What's in your mind?"%><br>
+          </div>
+          <%= f.submit "Post", class: "btn btn-primary btn-lg pull-right" %>
+        <% end %>
+      </div>
+
+      <% @posts.each do |post| %>
+        <div class="row">
+          <div class="col-md-12">
+              <div class="well well-lg">
+                <div class="username">
+                  <small>
+                    Created By: <strong><%= post.user.email if post.user%></strong>,
+                     <%= time_ago_in_words(post.created_at) %> ago,
+                  </small>
+                </div>
+
+                <div class="post-body">
+                  <%= post.body %>
+                </div>
+              </div>
+            </div>
+            <div class="comment-like">
+              <div class="row">
+                <div align = "center" class="col-md-6">like</div>
+                <div align = "center" class="col-md-6">comment</div>
+              </div>
+            </div>
+          </div>
+        <%end %>
+      </div>
+
+
+
+    <div class="col-md-2 ads-section">
+      <h1>This section is for ads</h1>
+    </div>
+  </div>
+</main>

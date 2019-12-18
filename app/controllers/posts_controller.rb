@@ -1,8 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only:[:show, :destroy]
-  before_action :require_user, except: [:index, :show]
+
   def new
-    @post = Post.new
   end
 
   def create
@@ -10,7 +9,7 @@ class PostsController < ApplicationController
     @post.user = User.first
     if @post.save
       flash[:success] = 'Post is successfully created'
-      redirect_to post_path(@post)
+      redirect_to posts_path
     else
       render 'new'
     end
@@ -20,6 +19,7 @@ class PostsController < ApplicationController
   end
 
   def index
+    @post = Post.new
     @posts = Post.all
   end
 
