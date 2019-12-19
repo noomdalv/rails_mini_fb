@@ -7,11 +7,12 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.user = User.first
+    @post.user = current_user
     if @post.save
       flash[:success] = 'Post is successfully created'
       redirect_to posts_path
     else
+      flash.now[:error] = 'Oops something happened!'
       render 'new'
     end
   end
@@ -19,6 +20,7 @@ class PostsController < ApplicationController
   def show; end
 
   def index
+    redirect_to new_user_session_path unless current_user
     @post = Post.new
     @posts = Post.all
   end
