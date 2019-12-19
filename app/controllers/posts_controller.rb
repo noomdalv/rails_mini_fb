@@ -3,11 +3,13 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show destroy]
 
-  def new; end
+  def new
+  end
 
   def create
+
     @post = Post.new(post_params)
-    @post.user = current_user
+     @post.user = current_user
     if @post.save
       flash[:success] = 'Post is successfully created'
       redirect_to posts_path
@@ -17,7 +19,9 @@ class PostsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @comment = @post.comments.new
+  end
 
   def index
     redirect_to new_user_session_path unless current_user

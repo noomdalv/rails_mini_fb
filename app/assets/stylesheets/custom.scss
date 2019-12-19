@@ -1,3 +1,5 @@
+$navbar-default-bg: #3b5998;
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 #logo {
@@ -15,13 +17,24 @@
   }
 }
 
+.navbar-default .navbar-nav > li > a {
+  color: #fff;
+}
+
 //login-page
 .login-section {
   margin-left: 20px;
 }
 
-
-// post-indes page
+// signup page
+.signup-section {
+  margin: 0 auto;
+  width: 80%;
+}
+.signup-form {
+  width: 100%
+}
+// post-index page
 .post-section {
   background-color: #f5f2f2;
   margin: 0 20px;

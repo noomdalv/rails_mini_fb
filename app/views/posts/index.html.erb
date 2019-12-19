@@ -22,7 +22,7 @@
               <div class="well well-lg">
                 <div class="username">
                   <small>
-                    Author: <strong><%= post.user.name if post.user%></strong>,
+                    Author: <strong><%= post.user.name if post.user%>  </strong>,
                      <%= time_ago_in_words(post.created_at) %> ago.
                   </small>
                 </div>
@@ -35,7 +35,7 @@
             <div class="comment-like">
               <div class="row">
                 <div align = "center" class="col-md-6">Like</div>
-                <div align = "center" class="col-md-6">Comment</div>
+                <div align = "center" class="col-md-6"><%= link_to "Comment", post_path(post) %></div>
               </div>
             </div>
           </div>

@@ -1,2 +1,46 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="row">
+  <div class="col-md-12">
+      <div class="well well-lg">
+        <div class="username">
+          <small>
+            Author: <strong><%= @post.user.name if @post.user%>  </strong>,
+             <%= time_ago_in_words(@post.created_at) %> ago.
+          </small>
+        </div>
+
+        <div class="post-body">
+          <%= @post.body %>
+        </div>
+      </div>
+    </div>
+    <div class="comment-like">
+      <div class="row">
+        <div align = "center" class="col-md-6">Like</div>
+        <div align = "center" class="col-md-6"><%= link_to "Comment", post_path %></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class= "col-md-6 col-md-offset-3">
+      <%= form_for(:comment, url: comments_path) do |f| %>
+       <div class="row">
+          <div class="form-group">
+            <%= f.label :body %>
+            <%= f.text_area :body, class: 'form-control', placeholder: "Write your comments"%><br>
+          </div>
+          <%= f.submit "Comment", class: "btn btn-primary pull-right" %>
+        </div>
+      <% end %>
+      <% @post.comments.each do |comment| %>
+        <div class="row">
+          <div class="col-md-12">
+            <div class= "comment-creator">
+              <strong><%= comment.user%>:</strong>
+              <%= comment.body %>
+            </div>
+         </div>
+       </div>
+      <% end %>
+     </div>
+  </div>
