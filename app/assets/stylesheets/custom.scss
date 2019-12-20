@@ -2,6 +2,11 @@ $navbar-default-bg: #3b5998;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body {
+  margin-top: 50px;
+}
+
 #logo {
   float: left;
   margin-right: 10px;
@@ -35,11 +40,14 @@ $navbar-default-bg: #3b5998;
   width: 100%
 }
 // post-index page
-.post-section {
+.new-post {
   background-color: #f5f2f2;
   margin: 0 20px;
   padding: 20px;
   padding-bottom: 0;
+}
+.post {
+  margin-top: 10px;
 }
 .profile-section {
   height: 50vh;
@@ -50,10 +58,10 @@ $navbar-default-bg: #3b5998;
 
 .input-field {
   height: 100px;
-
 }
 .comment-like {
-  margin-top: 10px;
-  padding-bottom: -10px;
+  height: 30px;
+  margin-top: -22px;
+  padding: 5px;
   background-color: #e3e5e8;
 }

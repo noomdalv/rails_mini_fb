@@ -3,7 +3,7 @@
       <div class="well well-lg">
         <div class="username">
           <small>
-            Author: <strong><%= @post.user.name if @post.user%>  </strong>,
+            Author: <strong><%= @post.user.name %></strong>,
              <%= time_ago_in_words(@post.created_at) %> ago.
           </small>
         </div>
@@ -23,20 +23,24 @@
 
   <div class="row">
     <div class= "col-md-6 col-md-offset-3">
-      <%= form_for(:comment, url: comments_path) do |f| %>
+      <%= form_for @comment do |f| %>
        <div class="row">
           <div class="form-group">
+            <%= f.hidden_field :post_id, :value => @post.id %>
             <%= f.label :body %>
             <%= f.text_area :body, class: 'form-control', placeholder: "Write your comments"%><br>
           </div>
           <%= f.submit "Comment", class: "btn btn-primary pull-right" %>
         </div>
       <% end %>
+
       <% @post.comments.each do |comment| %>
         <div class="row">
           <div class="col-md-12">
             <div class= "comment-creator">
-              <strong><%= comment.user%>:</strong>
+              <strong>Comment Creator:</strong><br>
+              <%= comment.user.name %><br>
+              <strong>Comment Body:</strong><br>
               <%= comment.body %>
             </div>
          </div>

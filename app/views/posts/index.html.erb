@@ -1,28 +1,27 @@
 <main class="">
   <div class="row">
     <div class="col-md-3 profile-section">
-      <h1> This section is for user profile</h1>
+      <h1>User Profile Section</h1>
       <p><b>Current User:</b> <%= current_user.name %></p>
     </div>
 
-    <div class="col-md-6 bg-success post-section">
+    <div class="col-md-6 bg-success new-post">
       <div class="row">
         <%= form_for @post do |f| %>
-          <div class="form-group">
-            <%= f.label :body %>
+            <p>Hello <%= current_user.name %> !</p>
             <%= f.text_area :body, class: 'form-control', placeholder: "What's in your mind?"%><br>
-          </div>
-          <%= f.submit "Post", class: "btn btn-primary btn-lg pull-right" %>
+
+            <%= f.submit "Post", class: "btn btn-primary btn-lg pull-right" %>
         <% end %>
       </div>
 
       <% @posts.each do |post| %>
-        <div class="row">
+        <div class="row post">
           <div class="col-md-12">
               <div class="well well-lg">
-                <div class="username">
+                <div class="post-user">
                   <small>
-                    Author: <strong><%= post.user.name if post.user%>  </strong>,
+                    Author: <strong><%= post.user.name %>  </strong>,
                      <%= time_ago_in_words(post.created_at) %> ago.
                   </small>
                 </div>
@@ -31,13 +30,12 @@
                   <%= post.body %>
                 </div>
               </div>
+                <div class="comment-like">
+                  <div align="center" class="col-md-6">Like</div>
+                  <div align="center" class="col-md-6"><%= link_to "Comment", post_path(post) %></div>
+                </div>
             </div>
-            <div class="comment-like">
-              <div class="row">
-                <div align = "center" class="col-md-6">Like</div>
-                <div align = "center" class="col-md-6"><%= link_to "Comment", post_path(post) %></div>
-              </div>
-            </div>
+
           </div>
         <%end %>
       </div>
@@ -45,7 +43,7 @@
 
 
     <div class="col-md-2 ads-section">
-      <h1>This section is for ads</h1>
+      <h1>Ads Section</h1>
     </div>
   </div>
 </main>

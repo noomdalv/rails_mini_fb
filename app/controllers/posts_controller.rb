@@ -7,9 +7,8 @@ class PostsController < ApplicationController
   end
 
   def create
-
     @post = Post.new(post_params)
-     @post.user = current_user
+    @post.user = current_user
     if @post.save
       flash[:success] = 'Post is successfully created'
       redirect_to posts_path
@@ -20,7 +19,8 @@ class PostsController < ApplicationController
   end
 
   def show
-    @comment = @post.comments.new
+    @post = Post.find(params[:id])
+    @comment = Comment.new     
   end
 
   def index
