@@ -49,6 +49,11 @@ body {
 .post {
   margin-top: 10px;
 }
+
+.post-body {
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
 .profile-section {
   height: 50vh;
 }
@@ -59,9 +64,10 @@ body {
 .input-field {
   height: 100px;
 }
-.comment-like {
-  height: 30px;
-  margin-top: -22px;
-  padding: 5px;
-  background-color: #e3e5e8;
+.comment-like-section {
+  font-size: 18px;
+  color: #000;
+  font-weight: 700;
+  text-decoration: none;
+  border-top: 1px solid #aaa;
 }

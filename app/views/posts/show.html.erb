@@ -1,9 +1,9 @@
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-6 col-md-offset-3">
       <div class="well well-lg">
         <div class="username">
           <small>
-            Author: <strong><%= @post.user.name %></strong>,
+            Author: <strong><%= link_to @post.user.name, posts_path(@post.user) %></strong>,
              <%= time_ago_in_words(@post.created_at) %> ago.
           </small>
         </div>
@@ -11,12 +11,10 @@
         <div class="post-body">
           <%= @post.body %>
         </div>
-      </div>
-    </div>
-    <div class="comment-like">
-      <div class="row">
-        <div align = "center" class="col-md-6">Like</div>
-        <div align = "center" class="col-md-6"><%= link_to "Comment", post_path %></div>
+        <div class="comment-like-section">
+          <div align = "center" class="col-md-6">Like</div>
+          <div align = "center" class="col-md-6"><%= link_to "Comment", post_path %></div>
+        </div>
       </div>
     </div>
   </div>
@@ -38,9 +36,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class= "comment-creator">
-              <strong>Comment Creator:</strong><br>
-              <%= comment.user.name %><br>
-              <strong>Comment Body:</strong><br>
+              <strong><%= link_to comment.user.name, users_path(comment.user)%>:</strong>
               <%= comment.body %>
             </div>
          </div>
