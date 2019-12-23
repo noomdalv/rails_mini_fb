@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
+  before_action :logged_in?, only: [:show]
   before_action :set_post, only: %i[show destroy]
 
   def new; end
@@ -33,5 +34,14 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:body)
+  end
+
+  private
+
+  def logged_in?
+    if current_user.nil?
+      flash[:danger] = "Please login"
+      redirect_to new_user_session_path
+    end
   end
 end
