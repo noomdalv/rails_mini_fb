@@ -20,13 +20,13 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @comment = Comment.new     
+    @comment = Comment.new
   end
 
   def index
     redirect_to new_user_session_path unless current_user
     @post = Post.new
-    @posts = Post.all
+    @posts = Post.all  
   end
 
   private

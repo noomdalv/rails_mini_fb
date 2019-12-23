@@ -16,4 +16,9 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+   def likes?(post)
+     like = Like.where('post_id = ? and user_id = ?', post.id, id)
+     like.count > 0
+   end
 end
