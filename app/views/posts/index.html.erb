@@ -8,10 +8,9 @@
     <div class="col-md-6 bg-success new-post">
       <div class="row">
         <%= form_for @post do |f| %>
-            <p>Hello <%= current_user.name %> !</p>
             <%= f.text_area :body, class: 'form-control', placeholder: "What's in your mind?"%><br>
 
-            <%= f.submit "Post", class: "btn btn-primary btn-lg pull-right" %>
+            <%= f.submit "Post", class: "btn btn-primary btn-md pull-right" %>
         <% end %>
       </div>
 
@@ -21,7 +20,7 @@
               <div class="well well-lg">
                 <div class="post-user">
                   <small>
-                    Author: <strong><%= post.user.name %>  </strong>,
+                    Author: <strong><%= link_to post.user.name, user_path(post.user)%></strong>,
                      <%= time_ago_in_words(post.created_at) %> ago.
                   </small>
                 </div>
@@ -29,13 +28,13 @@
                 <div class="post-body">
                   <%= post.body %>
                 </div>
-              </div>
-                <div class="comment-like">
+                  </div>
+                <div class=" col-md-6 comment-like">
                   <%= render partial: 'shared/like', locals: {post: post} %>
-                  <div align="center" class="col-md-6"><%= link_to "Comment", post_path(post) %></div>
+                  <div align="center"><%= link_to "Comment", post_path(post) %></div>
                 </div>
-            </div>
 
+           </div>
           </div>
         <%end %>
       </div>

@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-6 col-md-offset-3">
       <div class="well well-lg">
         <div class="username">
           <small>
@@ -12,12 +12,12 @@
           <%= @post.body %>
         </div>
       </div>
-    </div>
     <div class="comment-like">
       <div class="row">
-        <%= render 'shared/like' %>
+        <div align = "center" class="col-md-6"><%= link_to "Like", likes_path, method: :post %></div>
         <div align = "center" class="col-md-6"><%= link_to "Comment", post_path %></div>
       </div>
+    </div>
     </div>
   </div>
 
@@ -33,16 +33,15 @@
           <%= f.submit "Comment", class: "btn btn-primary pull-right" %>
         </div>
       <% end %>
-
+      <br>
       <% @post.comments.each do |comment| %>
         <div class="row">
           <div class="col-md-12">
             <div class= "comment-creator">
-              <strong>Comment Creator:</strong><br>
-              <%= comment.user.name %><br>
-              <strong>Comment Body:</strong><br>
-              <%= comment.body %>
+              <strong><%= comment.user.name %>:</strong>
+              <span><%= comment.body %></span>
             </div>
+            <br>
          </div>
        </div>
       <% end %>

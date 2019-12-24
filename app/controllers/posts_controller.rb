@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_post, only: %i[show destroy]
 
   def new
@@ -26,7 +27,7 @@ class PostsController < ApplicationController
   def index
     redirect_to new_user_session_path unless current_user
     @post = Post.new
-    @posts = Post.all  
+    @posts = Post.all
   end
 
   private

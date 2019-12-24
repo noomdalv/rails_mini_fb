@@ -59,9 +59,13 @@ body {
 .input-field {
   height: 100px;
 }
-.comment-like {
+
+.like-comment {
+  padding: 0;
   height: 30px;
-  margin-top: -22px;
-  padding: 5px;
-  background-color: #e3e5e8;
+}
+
+.like-button, .unlike-button {
+  width: 100%;
+  length: 100%;
 }

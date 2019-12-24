@@ -20,8 +20,9 @@ gem 'uglifier', '3.2.0'
 group :development, :test do
   gem 'byebug', '9.0.6', platform: :mri
   gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
-
 group :development do
   gem 'capybara', '2.7.1'
   gem 'listen', '3.1.5'
@@ -36,6 +37,7 @@ group :test do
   gem 'minitest', '5.10.3'
   gem 'minitest-reporters', '1.1.14'
   gem 'rails-controller-testing', '1.0.2'
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
