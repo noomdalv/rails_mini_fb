@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
-  def new
-  end
+  def new; end
 
   def create
     @post = Post.find(params[:comment][:post_id])
@@ -10,13 +11,12 @@ class CommentsController < ApplicationController
       flash[:success] = 'Comment successfully created'
       redirect_to @post
     else
-      flash.now[:error] = 'Oops something went wrong!'
+      flash[:error] = 'Oops something went wrong!'
       render 'new'
     end
   end
 
-  def index
-  end
+  def index; end
 
   private
 

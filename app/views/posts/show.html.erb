@@ -1,5 +1,5 @@
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
+<div class="row post-show container-fluid">
+  <div class="col-md-6 col-md-offset-3" style="margin-top: 20px">
       <div class="well well-lg">
         <div class="username">
           <small>
@@ -12,22 +12,16 @@
           <%= @post.body %>
         </div>
       </div>
-    <div class="comment-like">
-      <div class="row">
-        <div align = "center" class="col-md-6"><%= link_to "Like", likes_path, method: :post %></div>
-        <div align = "center" class="col-md-6"><%= link_to "Comment", post_path %></div>
-      </div>
-    </div>
+    <%= render partial: 'shared/like' %>
     </div>
   </div>
 
-  <div class="row">
+  <div class="row comment-container">
     <div class= "col-md-6 col-md-offset-3">
       <%= form_for @comment do |f| %>
        <div class="row">
           <div class="form-group">
             <%= f.hidden_field :post_id, :value => @post.id %>
-            <%= f.label :body %>
             <%= f.text_area :body, class: 'form-control', placeholder: "Write your comment"%><br>
           </div>
           <%= f.submit "Comment", class: "btn btn-primary pull-right" %>
@@ -37,9 +31,10 @@
       <% @post.comments.each do |comment| %>
         <div class="row">
           <div class="col-md-12">
-            <div class= "comment-creator">
-              <strong><%= comment.user.name %>:</strong>
-              <span><%= comment.body %></span>
+            <div class= "comment-info">
+              <strong><%= comment.user.name %>:</strong><br>
+              <span><%= comment.body %></span><br>
+              <small><%= time_ago_in_words(comment.created_at) %> ago.</small>
             </div>
             <br>
          </div>

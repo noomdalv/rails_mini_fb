@@ -27,8 +27,8 @@ body {
 }
 
 //login-page
-.login-section {
-  margin-left: 20px;
+.sign-in {
+  margin-top: 80px;
 }
 
 // signup page
@@ -72,4 +72,20 @@ body {
 .post-container {
   background-color: white;
   border-radius: 2px;
+}
+
+// post-show page
+.post-show {
+  background-color: #f7f7f7;
+}
+.comment-container {
+  padding-top: 20px;
+  background-color: #f7f7f7;
+}
+.like {
+  margin-top: -10px;
+}
+.comment-info {
+  margin-top: 20px;
+  background-color: white;
 }

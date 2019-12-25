@@ -4,8 +4,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_post, only: %i[show destroy]
 
-  def new
-  end
+  def new; end
 
   def create
     @post = Post.new(post_params)
@@ -26,6 +25,7 @@ class PostsController < ApplicationController
 
   def index
     redirect_to new_user_session_path unless current_user
+    @user = current_user
     @post = Post.new
     @posts = Post.all
   end

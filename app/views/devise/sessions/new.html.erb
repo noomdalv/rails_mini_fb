@@ -1,9 +1,10 @@
 
-<div class="row">
-  <div class="col-md-6">
+<div class="row container-fluid sign-in">
+  <div class="col-md-8">
+    <%= link_to image_tag("img2.jpg", width: 800, height: 400, class: "img-responsive center-block") %>
   </div>
 
-  <div class="col-md-5 login-section">
+  <div class="col-md-4 login-section">
     <h2>Log in</h2>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>

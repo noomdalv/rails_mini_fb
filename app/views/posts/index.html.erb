@@ -33,12 +33,7 @@
               <%= post.body %>
             </div>
           </div>
-          <div class="row like-comment">
-            <div class="col-md-6">
-              <%= render partial: 'shared/like', locals: {post: post} %>
-            </div>
-            <%= link_to "Comment", post_path(post), class: 'btn btn-sm btn-primary pull-right' %>
-          </div>
+          <%= render partial: 'shared/like_comment', locals: {post: post} %>
         </div>
       </div>
     <%end %>
