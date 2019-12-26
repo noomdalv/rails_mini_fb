@@ -11,11 +11,10 @@ class PostsController < ApplicationController
     @post.user = current_user
     if @post.save
       flash[:success] = 'Post successfully created'
-      redirect_to posts_path
     else
-      flash.now[:error] = 'Oops, something went wrong!'
-      render 'new'
+      flash[:danger] = 'Oops, Your post is not valid!'
     end
+    redirect_to posts_path
   end
 
   def show
@@ -24,7 +23,6 @@ class PostsController < ApplicationController
   end
 
   def index
-    redirect_to new_user_session_path unless current_user
     @user = current_user
     @post = Post.new
     @posts = Post.all

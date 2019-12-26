@@ -11,8 +11,8 @@ class CommentsController < ApplicationController
       flash[:success] = 'Comment successfully created'
       redirect_to @post
     else
-      flash[:error] = 'Oops something went wrong!'
-      render 'new'
+      flash[:danger] = 'Oops!! Your comment is Empty'
+      redirect_back fallback_location: posts_path(@post)
     end
   end
 
