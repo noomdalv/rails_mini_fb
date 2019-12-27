@@ -14,7 +14,18 @@ class FriendshipsController < ApplicationController
     end
   end
 
-  def destroy
+  def delete_request
+     @friendship = Friendship.find(params[:friendship_id])
+     @friendship.destroy
+     flash[:danger]= "Friend request cancelled."
+     redirect_back fallback_location: friendships_path
 
   end
+
+  def accept_request
+   @friend = User.find(params[:friend_o])
+   current_user.confirm_friend(@friend)
+   redirect_to friendships_path
+  end
+
 end

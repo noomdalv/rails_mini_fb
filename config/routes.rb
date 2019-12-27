@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   resources :posts
   resources :comments, only: [:create]
   resources :likes
-  resources :friendships, only: [:create, :index]
-
+  resources :friendships, only: [:create, :destroy, :index]
+  post '/acceptrequest', to: 'friendships#accept_request'
+  post '/deleterequest', to: 'friendships#delete_request'
   authenticated :user do
     root 'posts#index', as: :authenticated_user
   end
