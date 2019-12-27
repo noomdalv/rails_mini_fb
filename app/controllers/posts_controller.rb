@@ -22,8 +22,7 @@ class PostsController < ApplicationController
     @comment = Comment.new
   end
 
-  def index
-    @user = current_user
+  def index    
     @post = Post.new
     @posts = Post.all
   end
