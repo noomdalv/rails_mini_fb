@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.feature 'User Sign Up', type: :feature do
-  
   scenario 'Valid Sign Up' do
     visit new_user_registration_path
     fill_in 'Name', with: 'Vlad'
@@ -17,6 +18,6 @@ RSpec.feature 'User Sign Up', type: :feature do
     fill_in 'Email', with: 'xxx@xxx.com'
     fill_in 'Password', with: 'xxxxxx'
     click_button 'Sign up'
-    expect(page).to have_text("Name is too short (minimum is 4 characters)")
+    expect(page).to have_text('Name is too short (minimum is 4 characters)')
   end
 end
