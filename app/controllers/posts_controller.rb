@@ -22,7 +22,7 @@ class PostsController < ApplicationController
     @comment = Comment.new
   end
 
-  def index    
+  def index
     @post = Post.new
     @posts = Post.all
   end

@@ -1,6 +1,7 @@
 <div align="center" class="container-fluid">
   <h1>User Index</h1>
   <% @users.each do |user| %>
+  <% if user != current_user %>
     <div align="left" class="row user-info">
       <div class="col-md-8 user-gravatar">
         <%= gravatar_for(current_user) %>
@@ -16,5 +17,6 @@
       </div>
       <%= render partial: 'shared/friendship', locals: {user: user} %>
     </div>
+  <% end %>
   <% end %>
 </div>
