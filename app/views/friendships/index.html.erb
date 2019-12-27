@@ -1,0 +1,18 @@
+<div class="container-fluid">
+  <h2>Friend Requests Sent</h2>
+  <% @received_friendships.each do |received_friendship| %>
+    <div align="left" class="row friendship-info">
+        <div class="friendship-user">
+          <b>Friend:</b>
+          <%= received_friendship.user.name %>
+        </div>
+
+        <div class="friendship-status">
+          <b>Status:</b>
+          <%= received_friendship.status %>
+        </div>
+
+        <%= button_to "Add Friend" %>       
+    </div>
+  <% end %>
+</div>

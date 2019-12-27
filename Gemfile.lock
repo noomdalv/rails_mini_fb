@@ -91,6 +91,8 @@ GEM
     faraday (0.17.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.11.3)
+    font-awesome-rails (4.7.0.5)
+      railties (>= 3.2, < 6.1)
     formatador (0.2.5)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -287,6 +289,7 @@ DEPENDENCIES
   dotenv-rails
   factory_bot_rails
   faker
+  font-awesome-rails
   guard (= 2.13.0)
   guard-minitest (= 2.4.4)
   jbuilder (= 2.7.0)

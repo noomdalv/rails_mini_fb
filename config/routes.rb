@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :posts
   resources :comments, only: [:create]
   resources :likes
-  resources :friendships, only: [:create]
+  resources :friendships, only: [:create, :index]
 
   authenticated :user do
     root 'posts#index', as: :authenticated_user

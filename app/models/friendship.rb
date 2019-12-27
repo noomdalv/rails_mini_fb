@@ -5,6 +5,6 @@ class Friendship < ApplicationRecord
   after_initialize :defaults
 
   def defaults
-    self.status = "false"
+    self.status = false
   end
 end

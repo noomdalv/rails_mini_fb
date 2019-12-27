@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   before_save { self.email = email.downcase }
-  
+
   validates :name, length: { minimum: 4, maximum: 50 }, presence: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   validates :email, presence: true,
@@ -32,11 +32,11 @@ class User < ApplicationRecord
   end
   # returns
   def pending_friends
-    friendships.map{|friendship| friendship.friend if !friendship.status}.compact
+    friendships.map{|friendship| friendship if !friendship.status}.compact
   end
 
   def friend_requests
-    inverse_friendships.map{|friendship| friendship.user if !friendship.status}.compact
+    inverse_friendships.map{|friendship| friendship if !friendship.status}.compact
   end
 
   def confirm_friend(user)
