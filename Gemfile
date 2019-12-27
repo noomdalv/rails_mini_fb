@@ -19,9 +19,10 @@ gem 'uglifier', '3.2.0'
 
 group :development, :test do
   gem 'byebug', '9.0.6', platform: :mri
+  gem 'factory_bot_rails'
+  gem 'faker'
   gem 'rspec-rails'
 end
-
 group :development do
   gem 'capybara', '2.7.1'
   gem 'listen', '3.1.5'

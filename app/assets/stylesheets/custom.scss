@@ -1,0 +1,91 @@
+$navbar-default-bg: #3b5998;
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+  margin-top: 50px;
+}
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #fff;
+}
+
+//login-page
+.sign-in {
+  margin-top: 80px;
+}
+
+// signup page
+.signup-section {
+  margin: 0 auto;
+  width: 80%;
+}
+.signup-form {
+  width: 100%
+}
+// post-index page
+.new-post {
+  background-color: #f5f2f2;
+  padding: 20px;
+  padding-bottom: 0;
+}
+.create-post {
+  padding: 20px;
+}
+.post {
+  margin-top: 40px;
+}
+.post-user {
+  margin-top: -15px;
+  background-color: #f7f7f7;
+}
+.profile-section {
+  height: 50vh;
+}
+.unknown-friends-section {
+  height: 50vh;
+}
+.input-field {
+  height: 100px;
+}
+.like-comment {
+  margin-top: -15px;
+  padding-left: 3px;
+  padding-right: 15px;
+}
+.post-container {
+  background-color: white;
+  border-radius: 2px;
+}
+
+// post-show page
+.post-show {
+  background-color: #f7f7f7;
+}
+.comment-container {
+  padding-top: 20px;
+  background-color: #f7f7f7;
+}
+.like {
+  margin-top: -10px;
+}
+.comment-info {
+  margin-top: 20px;
+  background-color: white;
+}
