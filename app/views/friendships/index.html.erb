@@ -6,7 +6,7 @@
         <b>Name:</b>
         <%= received_friendship.user.name %>
       </div>
-     <%= link_to 'Accept Request',{:controller => "friendships",:friend => received_friendship.user.id, :action => "accept_request"} , :method=>:post, class: 'btn btn-sm btn-success' %>
+     <%= link_to 'Accept Request',{:controller => "friendships",:friend=> received_friendship.user, :action => "accept_request"} , :method=>:post, class: 'btn btn-sm btn-success' %>
      <%= link_to 'Cancel Request',{:controller => "friendships",:friendship_id=> received_friendship.id, :action => "delete_request"} , :method=>:post, class: 'btn btn-sm btn-danger' %>
       <div class="friendship-status">
         <b>Status:</b>

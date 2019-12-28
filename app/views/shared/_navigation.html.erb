@@ -5,7 +5,8 @@
       <ul class="nav navbar-nav navbar-right">
         <% if signed_in? %>
           <li><%= link_to "Posts", posts_path %></li>
-          <li><%= link_to(content_tag( :i, nil, class: 'fa fa-bell' ), friendships_path ) %></li>
+          <li class="notification-icon"><%= link_to(content_tag( :i, nil, class: 'fa fa-bell notification-bell' ), friendships_path) %><span class="notification-sign">12</span></li>
+
           <li><%= link_to "Friends", users_path %></li>
 
           <li class="dropdown">
@@ -27,8 +28,8 @@
 
           </li>
         <% else %>
-          <li><%= link_to "Sign Up", new_user_registration_path %></li>
-          <li><%= link_to "Sign In", new_user_session_path %></li>
+          <li><%= button_to "Sign Up", new_user_registration_path, method: :get, id: "signup-button", class: "signin-signup-button"%></li>
+          <li><%= button_to "Sign In", new_user_session_path, method: :get, class: "signin-signup-button"%></li>
         <% end %>
       </ul>
     </nav>

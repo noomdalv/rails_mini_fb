@@ -27,19 +27,43 @@ body {
   color: #fff;
 }
 
+.signin-signup-button {
+  color: #fff;
+  background-color: #4267b2;
+  border: 1px solid #29487d;
+  height: 30px;
+  margin-top: 10px;
+}
+#signup-button {
+  margin-right: 10px;
+}
+
+.notification-icon {
+  position: relative;
+}
+ .notification-bell {
+   font-size: 20px;
+ }
+.notification-sign {
+  height: 15px;
+  width: 15px;
+  font-size: 10px;
+  background-color: #fc0349;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
 //login-page
-.sign-in {
+.sign-in,
+.signup-section {
   margin-top: 80px;
 }
 
-// signup page
-.signup-section {
-  margin: 0 auto;
-  width: 80%;
-}
 .signup-form {
   width: 100%
 }
+
 // post-index page
 .new-post {
   background-color: #f5f2f2;
