@@ -34,7 +34,7 @@ class User < ApplicationRecord
   end
 
   # returns
-  def pending_friends(user)
+  def pending_friends(_user)
     friendships.where(status: false).pluck(:friend_id)
   end
 

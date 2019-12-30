@@ -16,20 +16,12 @@ RSpec.feature 'Friendship Request', type: :feature do
     end
   end
 
-  scenario 'user1 sends friendship request to user2' do
-    visit users_index_path
-    click_button('Add Friend')
-    expect(page).to have_content('Friendship request created!')
-  end
-
-  scenario 'user1 accepts friend request from user2' do
+  scenario 'user1 rejects friend request from user2' do
     @friendship = @user2.friendships.build(friend_id: @user1.id)
     @friendship.save
-    visit users_index_path
-    click_button('Add Friend')
     visit friendships_path
-    expect(page).to have_link('Accept Request')
-    click_link('Accept Request')
-    expect(page).to have_content('Friendship request accepted!')
+    expect(page).to have_link('Cancel Request')
+    click_link('Cancel Request')
+    expect(page).to have_content('Friendship request rejected.')
   end
 end

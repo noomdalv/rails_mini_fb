@@ -9,11 +9,13 @@ RSpec.feature 'User Log Out', type: :feature do
     visit new_user_session_path
     fill_in('Email', with: @user.email)
     fill_in('Password', with: @user.password)
-    click_button('Log in')
+    within '.actions' do
+      click_button('Sign In')
+    end
   end
 
   scenario 'Succesful User Logout' do
     click_on('Log Out')
-    expect(page).to have_content('Log in')
+    expect(page).to have_content('Signed out successfully.')
   end
 end
