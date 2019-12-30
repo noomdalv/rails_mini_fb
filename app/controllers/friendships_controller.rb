@@ -16,8 +16,8 @@ class FriendshipsController < ApplicationController
   end
 
   def delete_pending_request
-    @friendship = Friendship.where(friend_id: params[:friend_id], user_id: current_user.id)
-    @friendship.destroy
+    @friendship = current_user.friendships.find_by(friend_id:params[:friend_id])
+   @friendship.destroy
       flash[:danger] = "Pending request is deleted."
       redirect_back fallback_location: users_path
   end

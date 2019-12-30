@@ -5,8 +5,11 @@
       <ul class="nav navbar-nav navbar-right">
         <% if signed_in? %>
           <li><%= link_to "Posts", posts_path %></li>
-          <li class="notification-icon"><%= link_to(content_tag( :i, nil, class: 'fa fa-bell notification-bell' ), friendships_path) %><span class="notification-sign">12</span></li>
-
+          <li class="notification-icon"><%= link_to(content_tag( :i, nil, class: 'fa fa-bell notification-bell' ), friendships_path) %>
+            <% if current_user.friend_requests.count.positive? %>
+              <span class="notification-sign text-center"><%= current_user.friend_requests.count %></span>
+            <% end %>
+          </li>
           <li><%= link_to "Friends", users_path %></li>
 
           <li class="dropdown">
