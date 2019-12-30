@@ -7,4 +7,10 @@ module UsersHelper
     gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}"
     image_tag(gravatar_url, alt: user.name, class: 'gravatar')
   end
+
+
+  def pending_requests(user)
+    ids = current_user.pending_friends(user)
+    ids.include?(user.id)
+  end
 end

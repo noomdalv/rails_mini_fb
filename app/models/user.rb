@@ -34,8 +34,8 @@ class User < ApplicationRecord
   end
 
   # returns
-  def pending_friends
-    friendships.map { |f| f unless f.status }.compact
+  def pending_friends(user)
+    friendships.where(status: false).pluck(:friend_id)
   end
 
   def friend_requests
