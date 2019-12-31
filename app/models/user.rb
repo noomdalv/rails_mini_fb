@@ -27,11 +27,13 @@ class User < ApplicationRecord
   end
 
   # returns an array of friend who are friends with a particular user.
-  def friends
-    friendships_array = friendships.map { |friendship| friendship.friend if friendship.status }
-    inverse_friendships_array = inverse_friendships.map { |friendship| friendship.user if friendship.status }
-    friendships_array << inverse_friendships_array
-    friendships_array.compact
+
+  def sent_friends
+    friendships.where(status: true).pluck(:friend_id)
+  end
+
+  def received_friends
+    inverse_friendships.where(status: true).pluck(:user_id)
   end
 
   def pending_friends(_user)
@@ -50,12 +52,5 @@ class User < ApplicationRecord
     inverse_friendship = inverse_friendships.find_by(user_id: user.id)
     inverse_friendship.status = true
     inverse_friendship.save
-    friendship = friendships.create(friend_id: user.id)
-    friendship.status = true
-    friendship.save
-  end
-
-  def friend?(user)
-    friends.include?(user)
   end
 end
