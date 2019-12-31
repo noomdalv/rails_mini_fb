@@ -14,6 +14,6 @@ module UsersHelper
   end
 
   def friends(user)
-    current_user.sent_friends.include?(user.id) || current_user.received_friends.include?(user.id)
+    current_user.friends.include?(user.id)
   end
 end

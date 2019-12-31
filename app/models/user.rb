@@ -34,14 +34,6 @@ class User < ApplicationRecord
     friendships_array.compact
   end
 
-  def sent_friends
-    friendships.where(status: true).pluck(:friend_id)
-  end
-
-  def received_friends
-    inverse_friendships.where(status: true).pluck(:user_id)
-  end
-
   def pending_friends(_user)
     friendships.where(status: false).pluck(:friend_id)
   end
@@ -55,9 +47,12 @@ class User < ApplicationRecord
   end
 
   def confirm_friend(user)
-    friendship = inverse_friendships.find_by(user_id: user.id)
+    inverse_friendship = inverse_friendships.find_by(user_id: user.id)
+    inverse_friendship.status = true
+    inverse_friendship.save
+    friendship = friendships.create(friend_id: user.id)
     friendship.status = true
-    friendship.save!
+    friendship.save
   end
 
   def friend?(user)
