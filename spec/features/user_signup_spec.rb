@@ -8,7 +8,9 @@ RSpec.feature 'User Sign Up', type: :feature do
     fill_in 'Name', with: 'Vlad'
     fill_in 'Email', with: 'vlad@example.com'
     fill_in 'Password', with: '123456'
-    click_button 'Sign up'
+    within '.actions' do
+      click_button('Sign Up')
+    end
     expect(page).to have_text('Welcome! You have signed up successfully')
   end
 
@@ -17,7 +19,9 @@ RSpec.feature 'User Sign Up', type: :feature do
     fill_in 'Name', with: 'xxx'
     fill_in 'Email', with: 'xxx@xxx.com'
     fill_in 'Password', with: 'xxxxxx'
-    click_button 'Sign up'
+    within '.actions' do
+      click_button('Sign Up')
+    end
     expect(page).to have_text('Name is too short (minimum is 4 characters)')
   end
 end
