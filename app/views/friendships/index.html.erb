@@ -1,17 +1,23 @@
 <div class="container-fluid">
-  <h2>Friend Requests Sent</h2>
+  <h2>Friend Requests Received</h2>
   <% @received_friendships.each do |received_friendship| %>
-    <div id="testing" align="left" class="row friendship-info">
-      <div class="friendship-user">
-        <b>Name:</b>
-        <%= received_friendship.user.name %>
-      </div>
-     <%= link_to 'Accept Request',{:controller => "friendships",:friend=> received_friendship.user, :action => "accept_request"} , :method=>:post, class: 'btn btn-sm btn-success' %>
-     <%= link_to 'Cancel Request',{:controller => "friendships",:friendship_id=> received_friendship.id, :action => "delete_request"} , :method=>:post, class: 'btn btn-sm btn-danger' %>
-      <div class="friendship-status">
-        <b>Status:</b>
-        <%= received_friendship.status%>
-      </div>
+    <div align="left" class="row user-info">
+      <div class="col-md-8 user-gravatar">
+        <%= gravatar_for(received_friendship.user) %>
+        <div class="user-name">
+          <b>Name:</b>
+          <%= received_friendship.user.name %>
+        </div>
+
+        <div class="user-email">
+          <b>Email:</b>
+          <%= received_friendship.user.email %>
+        </div>
+        </div>
+        <div>
+          <%= link_to 'Accept Request',{:controller => "friendships",:friend=> received_friendship.user, :action => "accept_request"} , :method=>:post, class: 'btn btn-sm btn-success' %>
+          <%= link_to 'Cancel Request', friendship_path(received_friendship), class: 'btn btn-sm btn-danger', method: :delete %>
+        </div>
     </div>
   <% end %>
 </div>

@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+
   before_save { self.email = email.downcase }
 
   validates :name, length: { minimum: 4, maximum: 50 }, presence: true
@@ -30,12 +31,23 @@ class User < ApplicationRecord
     friendships_array = friendships.map { |friendship| friendship.friend if friendship.status }
     inverse_friendships_array = inverse_friendships.map { |friendship| friendship.user if friendship.status }
     friendships_array << inverse_friendships_array
-    friends_array.compact
+    friendships_array.compact
   end
 
-  # returns
-  def pending_friends(_user)
+  def sent_friends
+    friendships.where(status: true).pluck(:friend_id)
+  end
+
+  def received_friends
+    inverse_friendships.where(status: true).pluck(:user_id)
+  end
+
+  def pending_friends(user)
     friendships.where(status: false).pluck(:friend_id)
+  end
+
+  def received_requests(user)
+    inverse_friendships.where(status: false).pluck(:user_id).include?(user.id)
   end
 
   def friend_requests

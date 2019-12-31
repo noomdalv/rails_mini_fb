@@ -1,5 +1,7 @@
 <div class="create-friendship">
-  <% if pending_requests(user) %>
+  <%if friends(user)%>
+    <button disabled>Already Friends</button>
+  <% elsif pending_requests(user) %>
     <button disabled>Request Pending</button>
     <%= button_to "Cancel Request",
     { controller: 'friendships', action: 'delete_pending_request', friend_id: user.id}, method: :post %>
