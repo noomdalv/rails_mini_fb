@@ -42,7 +42,7 @@ class User < ApplicationRecord
     inverse_friendships.where(status: true).pluck(:user_id)
   end
 
-  def pending_friends(user)
+  def pending_friends(_user)
     friendships.where(status: false).pluck(:friend_id)
   end
 
