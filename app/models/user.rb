@@ -19,19 +19,12 @@ class User < ApplicationRecord
                     length: { minimum: 10, maximum: 255 }
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,
+         :omniauthable, omniauth_providers: %i[facebook]
 
   def likes?(post)
     like = Like.where('post_id = ? and user_id = ?', post.id, id)
     like.count.positive?
-  end
-
-  # returns an array of friend who are friends with a particular user.
-  def friends
-    friendships_array = friendships.map { |friendship| friendship.friend if friendship.status }
-    inverse_friendships_array = inverse_friendships.map { |friendship| friendship.user if friendship.status }
-    friendships_array << inverse_friendships_array
-    friendships_array.compact
   end
 
   def sent_friends
@@ -60,7 +53,23 @@ class User < ApplicationRecord
     friendship.save!
   end
 
-  def friend?(user)
-    friends.include?(user)
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0, 20]
+      user.name = auth.info.name   # assuming the user model has a name
+      # user.image = auth.info.image # assuming the user model has an image
+      # If you are using confirmable and the provider(s) you use validate emails,
+      # uncomment the line below to skip the confirmation emails.
+      # user.skip_confirmation!
+    end
+  end
+
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+        user.email = data["email"] if user.email.blank?
+      end
+    end
   end
 end

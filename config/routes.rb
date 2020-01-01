@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  devise_for :users, path: '', path_names: {sign_in: "signin", sign_out: "signout", sign_up: "signup"}
+  devise_for :users, path: '',
+              path_names: {sign_in: "signin", sign_out: "signout", sign_up: "signup"},
+              controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+
   get 'users/index'
   resources :users
   resources :posts
@@ -16,6 +19,6 @@ Rails.application.routes.draw do
   end
 
   devise_scope :user do
-    root "devise/sessions#new"
+    root "devise/sessions#new"    
   end
 end
