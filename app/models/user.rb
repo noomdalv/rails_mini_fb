@@ -36,6 +36,8 @@ class User < ApplicationRecord
     inverse_friendships.where(status: true).pluck(:user_id)
   end
 
+
+
   def pending_friends(_user)
     friendships.where(status: false).pluck(:friend_id)
   end
@@ -52,5 +54,8 @@ class User < ApplicationRecord
     inverse_friendship = inverse_friendships.find_by(user_id: user.id)
     inverse_friendship.status = true
     inverse_friendship.save
+  end
+  def add_friendship_row(user)
+    friendship = user.friendships.create("friend_id=? and status=?", current_user.id, true)
   end
 end

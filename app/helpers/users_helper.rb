@@ -12,8 +12,4 @@ module UsersHelper
     ids = current_user.pending_friends(user)
     ids.include?(user.id)
   end
-
-  def friends(user)
-    current_user.sent_friends.include?(user.id) || current_user.received_friends.include?(user.id)
-  end
 end
