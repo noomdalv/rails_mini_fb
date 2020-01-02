@@ -3,7 +3,7 @@
       <div class="well well-lg">
         <div class="username">
           <small>
-            Author: <strong><%= @post.user.name %></strong>,
+            Author: <strong><%=link_to @post.user.name, user_path(@post.user) %></strong>,
              <%= time_ago_in_words(@post.created_at) %> ago.
           </small>
         </div>
@@ -32,7 +32,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class= "comment-info">
-              <strong><%= comment.user.name %>:</strong><br>
+              <strong><%=link_to comment.user.name, user_path(comment.user) %>:</strong><br>
               <span><%= comment.body %></span><br>
               <small><%= time_ago_in_words(comment.created_at) %> ago.</small>
             </div>
