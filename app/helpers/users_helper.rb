@@ -17,8 +17,8 @@ module UsersHelper
     current_user.friends.include?(user.id)
   end
 
-   def friend_profiles
-     ids = current_user.sent_friends
-     User.where(id:ids)
-   end
+  def friend_profiles
+    ids = current_user.friends
+    User.where(id: ids)
+  end
 end
