@@ -8,9 +8,9 @@ class Friendship < ApplicationRecord
   validates :friend, presence: true, uniqueness: { scope: :user }
 
   def confirm_friend
-    self.update_attributes(status: true)
-    Friendship.create!(friend_id: self.user_id,
-                    user_id: self.friend_id,
-                    status: true)
+    update_attributes(status: true)
+    Friendship.create!(friend_id: user_id,
+                       user_id: friend_id,
+                       status: true)
   end
 end
