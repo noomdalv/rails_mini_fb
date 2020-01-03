@@ -24,7 +24,8 @@ class PostsController < ApplicationController
 
   def index
     @post = Post.new
-    @posts = Post.all
+    @friend_ids = current_user.friends << current_user.id
+    @posts = Post.where(user_id: @friend_ids).order(created_at: :desc).paginate(page: params[:page], per_page: 10)
   end
 
   private
