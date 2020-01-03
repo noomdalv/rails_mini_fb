@@ -1,11 +1,17 @@
 <main class="container-fluid">
   <div class="row">
-    <div class="col-md-3 profile-section">
+    <div class="col-md-3 profile-section text-center">
       <h3>User Profile</h3>
       <h1>
-        <%= gravatar_for(current_user) %>
-        <%= current_user.name %>
+        <%= gravatar_for(current_user, 150)%>
+        <h3><%= current_user.name %></h3>
       </h1>
+      <div class= "divider"> </div>
+      <div class="friends-profile-image">
+        <% friend_profiles.each do |friend_profile| %>
+          <%= gravatar_for(friend_profile, 80)%>
+        <% end %>
+      </div>
     </div>
 
     <div class="col-md-6 bg-success new-post">

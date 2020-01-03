@@ -4,7 +4,7 @@
   <% if user != current_user && !current_user.received_requests(user) %>
     <div align="left" class="row user-info">
       <div class="col-md-8 user-gravatar">
-        <%= gravatar_for(current_user) %>
+        <%= gravatar_for(current_user, 120) %>
         <div class="user-name">
           <b>Name:</b>
           <%= user.name %>

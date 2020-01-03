@@ -3,7 +3,7 @@
   <% @received_friendships.each do |received_friendship| %>
     <div align="left" class="row user-info">
       <div class="col-md-8 user-gravatar">
-        <%= gravatar_for(received_friendship.user) %>
+        <%= gravatar_for(received_friendship.user, 120) %>
         <div class="user-name">
           <b>Name:</b>
           <%= received_friendship.user.name %>
