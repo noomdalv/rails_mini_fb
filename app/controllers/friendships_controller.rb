@@ -30,8 +30,8 @@ class FriendshipsController < ApplicationController
   end
 
   def accept_request
-    @friend = User.find(params[:friend])
-    current_user.confirm_friend(@friend)
+    @friendship = Friendship.find(params[:friendship_id])
+    @friendship.confirm_friend
     flash[:success] = 'Friendship request accepted!'
     redirect_to friendships_path
   end
