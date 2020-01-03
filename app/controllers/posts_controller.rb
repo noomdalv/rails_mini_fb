@@ -28,8 +28,8 @@ class PostsController < ApplicationController
     if current_user.friends.any?
       @posts = Post.where(user_id: @friend_ids).order(created_at: :desc).paginate(page: params[:page], per_page: 10)
     else
-      ids =Post.pluck(:id).shuffle[0..4]
-      @posts= Post.where(id: ids).paginate(page: params[:page], per_page: 10)
+      ids = Post.pluck(:id).sample(5)
+      @posts = Post.where(id: ids).paginate(page: params[:page], per_page: 10)
     end
   end
 
