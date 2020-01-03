@@ -30,16 +30,9 @@ class FriendshipsController < ApplicationController
   end
 
   def accept_request
-    @friend = User.find(params[:friend])
-    current_user.confirm_friend(@friend)
-    create_inverse_friendship(@friend)
+    @friendship = Friendship.find(params[:friendship_id])
+    @friendship.confirm_friend
     flash[:success] = 'Friendship request accepted!'
     redirect_to friendships_path
-  end
-
-  def create_inverse_friendship(friend)
-    inverse_friendship = current_user.friendships.build(friend_id: friend.id)
-    inverse_friendship.status = true
-    inverse_friendship.save
   end
 end

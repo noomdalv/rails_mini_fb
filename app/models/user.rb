@@ -43,10 +43,4 @@ class User < ApplicationRecord
   def friend_requests
     inverse_friendships.map { |f| f unless f.status }.compact
   end
-
-  def confirm_friend(friend)
-    inverse_friendship = inverse_friendships.find_by(user_id: friend.id)
-    inverse_friendship.status = true
-    inverse_friendship.save
-  end
 end
