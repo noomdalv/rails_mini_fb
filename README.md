@@ -1,6 +1,6 @@
-Ruby On Rails: Micro-Facebook
+## Ruby On Rails: Micro-Facebook
 
-Microverse
+## Microverse
 
 This is The 8th and Final Project of the Microverse Technical Curriculum at Microverse - @microverseinc
 
@@ -8,8 +8,12 @@ This is The 8th and Final Project of the Microverse Technical Curriculum at Micr
 ## Features of the App
     User [friendships, posts,comments, likes] modules and functionalities.
     The project was completed using Bootstrap, Devise, RSpec, Omniauth and PostgreSQL.
+    
+## Live version of the App
+  https://ancient-woodland-03904.herokuapp.com/signup
 
-## Languages Used: Ruby, HTML & CSS
+## Languages Used: 
+### Ruby, HTML & CSS
 
 ## How to install
 
