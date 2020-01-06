@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
+<<<<<<< HEAD
   before_action :logged_in?, only: %i[show]
+=======
+  before_action :authenticate_user!
+>>>>>>> e0d4398038eee9e6272b760bd34fd446c32a84b8
   before_action :set_post, only: %i[show destroy]
 
   def new; end
@@ -10,20 +14,27 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = current_user
     if @post.save
-      flash[:success] = 'Post is successfully created'
-      redirect_to posts_path
+      flash[:success] = 'Post successfully created'
     else
-      flash.now[:error] = 'Oops something happened!'
-      render 'new'
+      flash[:danger] = 'Oops, Your post is not valid!'
     end
+    redirect_to posts_path
   end
 
-  def show; end
+  def show
+    @post = Post.find(params[:id])
+    @comment = Comment.new
+  end
 
   def index
-    redirect_to new_user_session_path unless current_user
     @post = Post.new
-    @posts = Post.all
+    @friend_ids = current_user.friends << current_user.id
+    if current_user.friends.any?
+      @posts = Post.where(user_id: @friend_ids).order(created_at: :desc).paginate(page: params[:page], per_page: 10)
+    else
+      ids = Post.pluck(:id).sample(5)
+      @posts = Post.where(id: ids).paginate(page: params[:page], per_page: 10)
+    end
   end
 
   private

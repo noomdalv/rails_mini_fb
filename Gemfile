@@ -4,9 +4,12 @@ source 'https://rubygems.org'
 
 gem 'bcrypt', '3.1.12'
 gem 'bootstrap-sass', '3.3.7'
+gem 'bootstrap-will_paginate', '1.0.0'
 gem 'coffee-rails', '4.2.2'
 gem 'devise'
 gem 'dotenv-rails'
+gem 'font-awesome-rails'
+gem 'hirb'
 gem 'jbuilder', '2.7.0'
 gem 'jquery-rails', '4.3.1'
 gem 'omniauth-facebook'
@@ -16,12 +19,17 @@ gem 'rails', '5.1.6'
 gem 'sass-rails', '5.0.6'
 gem 'turbolinks', '5.0.1'
 gem 'uglifier', '3.2.0'
+gem 'will_paginate', '3.1.6'
+gem 'carrierwave',             '1.2.2'
+gem 'mini_magick',             '4.7.0'
+gem 'fog'
 
 group :development, :test do
   gem 'byebug', '9.0.6', platform: :mri
+  gem 'factory_bot_rails'
+  gem 'faker'
   gem 'rspec-rails'
 end
-
 group :development do
   gem 'capybara', '2.7.1'
   gem 'listen', '3.1.5'

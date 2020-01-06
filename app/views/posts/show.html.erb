@@ -1,2 +1,44 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="row post-show container-fluid">
+  <div class="col-md-6 col-md-offset-3" style="margin-top: 20px">
+      <div class="well well-lg">
+        <div class="username">
+          <small>
+            Author: <strong><%=link_to @post.user.name, user_path(@post.user) %></strong>,
+             <%= time_ago_in_words(@post.created_at) %> ago.
+          </small>
+        </div>
+
+        <div class="post-body">
+          <%= @post.body %>
+        </div>
+      </div>
+    <%= render partial: 'shared/like' %>
+    </div>
+  </div>
+
+  <div class="row comment-container">
+    <div class= "col-md-6 col-md-offset-3">
+      <%= form_for @comment do |f| %>
+       <div class="row">
+          <div class="form-group">
+            <%= f.hidden_field :post_id, :value => @post.id %>
+            <%= f.text_area :body, class: 'form-control', placeholder: "Write your comment"%><br>
+          </div>
+          <%= f.submit "Comment", class: "btn btn-primary pull-right" %>
+        </div>
+      <% end %>
+      <br>
+      <% @post.comments.each do |comment| %>
+        <div class="row">
+          <div class="col-md-12">
+            <div class= "comment-info">
+              <strong><%=link_to comment.user.name, user_path(comment.user) %>:</strong><br>
+              <span><%= comment.body %></span><br>
+              <small><%= time_ago_in_words(comment.created_at) %> ago.</small>
+            </div>
+            <br>
+         </div>
+       </div>
+      <% end %>
+     </div>
+  </div>

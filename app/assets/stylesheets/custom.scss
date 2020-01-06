@@ -1,5 +1,13 @@
+$navbar-default-bg: #3b5998;
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
+
+body {
+  margin-top: 50px;
+}
+
 #logo {
   float: left;
   margin-right: 10px;
@@ -15,18 +23,76 @@
   }
 }
 
-//login-page
-.login-section {
-  margin-left: 20px;
+.navbar-default .navbar-nav > li > a {
+  color: #fff;
 }
 
+.signin-signup-button {
+  color: #fff;
+  background-color: #4267b2;
+  border: 1px solid #29487d;
+  height: 30px;
+  margin-top: 10px;
+}
+#signup-button {
+  margin-right: 10px;
+}
 
-// post-indes page
-.post-section {
+.notification-icon {
+  position: relative;
+}
+ .notification-bell {
+   font-size: 20px;
+ }
+.notification-sign {
+  height: 15px;
+  width: 15px;
+  font-size: 10px;
+  background-color: #fc0349;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+//login-page
+.sign-in,
+.signup-section {
+  margin-top: 80px;
+}
+
+.signup-form {
+  width: 100%
+}
+
+// post-index page
+
+// user-profile Section
+.divider {
+  content: "";
+  border-top: 1px solid #aaa;
+  margin: 15px 0;
+}
+
+.friends-profile-image {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.new-post {
   background-color: #f5f2f2;
-  margin: 0 20px;
   padding: 20px;
   padding-bottom: 0;
+}
+.create-post {
+  padding: 20px;
+}
+.post {
+  margin-top: 40px;
+}
+.post-user {
+  margin-top: -15px;
+  background-color: #f7f7f7;
 }
 .profile-section {
   height: 50vh;
@@ -34,13 +100,45 @@
 .unknown-friends-section {
   height: 50vh;
 }
-
 .input-field {
   height: 100px;
-
 }
-.comment-like {
+.like-comment {
+  margin-top: -15px;
+  padding-left: 3px;
+  padding-right: 15px;
+}
+.post-container {
+  background-color: white;
+  border-radius: 2px;
+}
+
+// post-show page
+.post-show {
+  background-color: #f7f7f7;
+}
+.comment-container {
+  padding-top: 20px;
+  background-color: #f7f7f7;
+}
+.like {
+  margin-top: -10px;
+}
+.comment-info {
+  margin-top: 20px;
+  background-color: white;
+}
+
+// user-index login-page
+.user-info {
+  display: flex;
+  padding: 10px;
+  width: 500px;
+  align-items: center;
+  margin-left: 10px;
   margin-top: 10px;
-  padding-bottom: -10px;
-  background-color: #e3e5e8;
+  border: gray solid 1px;
+  border-radius: 2px;
+}
+.create-friendship {
 }

@@ -4,7 +4,11 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   before :each do
-    @user = User.new(name: 'test', email: 'test@test.com', password: 'test1234')
+    @user = create(:user)
+  end
+
+  it 'is valid with valid attributes' do
+    expect(@user).to be_valid
   end
 
   context 'Username validation' do

@@ -1,0 +1,18 @@
+<div class="create-friendship">
+  <%if friends(user)%>
+    <button disabled>Already Friends</button>
+  <% elsif pending_requests(user) %>
+    <button disabled>Request Pending</button>
+    <%= button_to "Cancel Request",
+    { controller: 'friendships', action: 'delete_pending_request', friend_id: user.id}, method: :post %>
+  <% else %>
+    <%= form_for @friendship do |f| %>
+     <div class="row">
+        <div class="form-group col-sm-3">
+          <%= f.hidden_field :friend_id, :value => user.id %>
+        </div>
+          <%= f.submit "Add Friend", class: "btn btn-primary pull-right" %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

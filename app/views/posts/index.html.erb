@@ -1,51 +1,53 @@
-<main class="">
+<main class="container-fluid">
   <div class="row">
-    <div class="col-md-3 profile-section">
-      <h1> This section is for user profile</h1>
-      <p><b>Current User:</b> <%= current_user.name %></p>
-    </div>
-
-    <div class="col-md-6 bg-success post-section">
-      <div class="row">
-        <%= form_for @post do |f| %>
-          <div class="form-group">
-            <%= f.label :body %>
-            <%= f.text_area :body, class: 'form-control', placeholder: "What's in your mind?"%><br>
-          </div>
-          <%= f.submit "Post", class: "btn btn-primary btn-lg pull-right" %>
+    <div class="col-md-3 profile-section text-center">
+      <h3>User Profile</h3>
+      <h1>
+        <%= gravatar_for(current_user, 150)%>
+        <h3><%= current_user.name %></h3>
+      </h1>
+      <div class= "divider"> </div>
+      <div class="friends-profile-image">
+        <% friend_profiles.each do |friend_profile| %>
+          <%= gravatar_for(friend_profile, 80)%>
         <% end %>
       </div>
+    </div>
 
-      <% @posts.each do |post| %>
-        <div class="row">
-          <div class="col-md-12">
-              <div class="well well-lg">
-                <div class="username">
-                  <small>
-                    Author: <strong><%= post.user.name if post.user%></strong>,
-                     <%= time_ago_in_words(post.created_at) %> ago.
-                  </small>
-                </div>
+    <div class="col-md-6 bg-success new-post">
+      <div class="row create-post">
+        <%= form_for @post do |f| %>
+        <%= f.text_area :body, class: 'form-control', placeholder: "What's in your mind?"%><br>
 
-                <div class="post-body">
-                  <%= post.body %>
-                </div>
-              </div>
+        <%= f.submit "Post", class: "btn btn-primary btn-md pull-right" %>
+      <% end %>
+    </div>
+
+    <% @posts.each do |post| %>
+      <div class="row post">
+        <div class="col-md-12">
+          <div class="well post-container">
+            <div class="post-user">
+              <small>
+                <b>Author:</b>
+                <strong><%= link_to post.user.name, user_path(post.user)%></strong>,
+                <%= time_ago_in_words(post.created_at) %> ago.
+              </small>
             </div>
-            <div class="comment-like">
-              <div class="row">
-                <div align = "center" class="col-md-6">Like</div>
-                <div align = "center" class="col-md-6">Comment</div>
-              </div>
+
+            <div class="post-body">
+              <%= post.body %>
             </div>
           </div>
-        <%end %>
+          <%= render partial: 'shared/like_comment', locals: {post: post} %>
+        </div>
       </div>
-
-
-
-    <div class="col-md-2 ads-section">
-      <h1>This section is for ads</h1>
-    </div>
+    <%end %>
+    <%= will_paginate %>
   </div>
+
+  <div class="col-md-2 ads-section">
+    <h1>Ads Section</h1>
+  </div>
+</div>
 </main>
