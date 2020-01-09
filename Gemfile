@@ -24,6 +24,7 @@ gem 'carrierwave',             '1.2.2'
 gem 'mini_magick',             '4.7.0'
 gem 'fog'
 
+
 group :development, :test do
   gem 'byebug', '9.0.6', platform: :mri
   gem 'factory_bot_rails'

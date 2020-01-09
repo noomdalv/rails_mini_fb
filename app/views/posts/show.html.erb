@@ -10,6 +10,7 @@
 
         <div class="post-body">
           <%= @post.body %>
+          <%= image_tag @post.picture.url if @post.picture? %>
         </div>
       </div>
     <%= render partial: 'shared/like' %>

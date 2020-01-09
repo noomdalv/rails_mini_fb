@@ -20,6 +20,9 @@
         <%= f.text_area :body, class: 'form-control', placeholder: "What's in your mind?"%><br>
 
         <%= f.submit "Post", class: "btn btn-primary btn-md pull-right" %>
+        <span class="picture">
+          <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+        </span>
       <% end %>
     </div>
 
@@ -37,6 +40,7 @@
 
             <div class="post-body">
               <%= post.body %>
+              <%= image_tag post.picture.url if post.picture? %>
             </div>
           </div>
           <%= render partial: 'shared/like_comment', locals: {post: post} %>

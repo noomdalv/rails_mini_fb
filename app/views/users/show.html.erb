@@ -14,6 +14,18 @@
         <%= f.text_area :body, class: 'form-control', placeholder: "What's in your mind?"%><br>
 
         <%= f.submit "Post", class: "btn btn-primary btn-md pull-right" %>
+        <span class="picture">
+          <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+        </span>
+        <script type="text/javascript">
+          $('#post_picture').bind('change', function() {
+            var size_in_megabytes = this.files[0].size/1024/1024;
+            if (size_in_megabytes > 5) {
+              alert('Maximum file size is 5MB. Please choose a smaller file.');
+            }
+          });
+        </script>
+
       <% end %>
     </div>
 
@@ -31,6 +43,7 @@
 
             <div class="post-body">
               <%= post.body %>
+              <%= image_tag post.picture.url if post.picture? %>
             </div>
           </div>
           <%= render partial: 'shared/like_comment', locals: {post: post} %>
