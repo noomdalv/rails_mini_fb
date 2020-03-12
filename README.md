@@ -2,7 +2,7 @@
 
 ## Microverse
 
-This is The 8th and Final Project of the Microverse Technical Curriculum at Microverse - @microverseinc
+This is the 8th and Final Project of the Microverse Ruby on Rails Curriculum at Microverse - @microverseinc
 
     This project consists of building a Facebook clone with minimal features using Rails 5
 ## Features of the App
@@ -18,7 +18,7 @@ This is The 8th and Final Project of the Microverse Technical Curriculum at Micr
 ## How to install
 
 1. Open Terminal
-2. git clone https://github.com/noomdalv/rails_final_project.git
+2. git clone https://github.com/noomdalv/rails_mini_fb.git
 3. cd rails_final_project
 4. run rails db:migrate
 5. run bundle install
