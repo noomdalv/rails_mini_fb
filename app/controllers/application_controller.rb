@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     return unless current_user.nil?
 
     flash[:danger] = 'Please login'
-    redirect_to new_user_session_path
+    redirect_to new_user_registration_path
   end
 
   protected
@@ -21,6 +21,12 @@ class ApplicationController < ActionController::Base
 
   # Overwriting the sign_out redirect path method
   def after_sign_out_path_for(_resource_or_scope)
-    new_user_session_path
+    new_user_registration_path
+  end
+
+  def authenticate_user!
+    unless user_signed_in?
+      redirect_to new_user_registration_path
+    end
   end
 end

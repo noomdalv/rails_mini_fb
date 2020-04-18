@@ -41,9 +41,11 @@ body {
 .notification-icon {
   position: relative;
 }
- .notification-bell {
-   font-size: 20px;
- }
+
+.notification-bell {
+  font-size: 20px;
+}
+
 .notification-sign {
   height: 15px;
   width: 15px;
@@ -60,8 +62,30 @@ body {
   margin-top: 80px;
 }
 
+.signup-title {
+  margin-top: 0;
+  font-weight: 700;
+}
 .signup-form {
-  width: 100%
+  display: flex;
+  margin-left: 100px;
+}
+
+.inputs {
+  width: 100%;
+}
+
+.submit-button {
+  font-size: 20px;
+  font-weight: 400;
+  border: 1px solid #4f4f4d;
+  padding: 5px 25px;
+  margin-bottom: 20px;
+}
+
+.img-responsive {
+  width: 700px;
+  margin-left: 30px;
 }
 
 // post-index page
@@ -140,5 +164,24 @@ body {
   border: gray solid 1px;
   border-radius: 2px;
 }
-.create-friendship {
+
+.login-form {
+  margin-top: 10px;
+}
+#inputEmail,
+#inputPassword {
+  height: 25px;
+  border: 1px solid #4f4f4d;
+  border-radius: 0;
+  background-color: #fcf8bb;
+}
+
+.signin-btn {
+  height: 26px;
+  border: 1px solid #4f4f4d;
+  border-radius: none;
+  background-color: #245ab3;
+  text-align: center;
+  border-radius: none;
+  color: #fff;
 }
