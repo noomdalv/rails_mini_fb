@@ -2,10 +2,13 @@ Rails.application.routes.draw do
 
   devise_for :users, path: '',
               path_names: {sign_in: "signin", sign_out: "signout", sign_up: "signup"},
-              controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+              controllers: { omniauth_callbacks: 'users/omniauth_callbacks',
+              registrations: 'registrations',
+              sessions: 'sessions' }
 
   get 'users/index'
   resources :users
+  resources :contents
   resources :posts
   resources :comments, only: [:create]
   resources :likes
@@ -19,6 +22,6 @@ Rails.application.routes.draw do
   end
 
   devise_scope :user do
-    root "devise/registrations#new"    
+    root "contents#new"    
   end
 end

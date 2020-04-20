@@ -34,22 +34,23 @@
         </ul>
       </nav>
         <% else %>
-        <nav >
-          <ul class="navbar-right align-self-center login-form">
-          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <% f.options[:html][:class] += ' form-inline my-2 my-lg-0' %>
-            <div class="form-group mr-2">
-                <label for="inputEmail">Email</label>
-                <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+      <nav class="navbar-right align-self-center login-form">
+        <ul class="col-md-6 login-section">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-inline my-2 my-lg-0"}) do |f| %>
+            <div class="field">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", id: "inputEmail"%>
             </div>
-            <div class="form-group mr-2">
-                <label for="inputPassword">Password</label>
-                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+
+            <div class="field">
+              <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", id: "inputPassword" %>
             </div>
-            <button type="submit" class="my-2 my-sm-0 signin-btn">Sign in</button>
+            <div class="actions">
+              <%= f.submit "Sign In", class: 'my-2 my-sm-0 signin-btn'%>
+            </div>      
           <% end %>
-          </ul>
-        </nav>
-        <% end %>
+      </ul>
+    </nav>
+</div>
+ <% end %>
   </div>
 </header>
