@@ -9,6 +9,10 @@ This is the 8th and Final Project of the Microverse Ruby on Rails Curriculum at 
     User [friendships, posts,comments, likes] modules and functionalities.
     The project was completed using Bootstrap, Devise, RSpec, Omniauth and PostgreSQL.
     
+## App screenshots
+![screenshot](https://i.imgur.com/L8kgcVm.jpg)
+![screenshot](https://i.imgur.com/5bupmgF.jpg)
+    
 ## Live version of the App
   https://ancient-woodland-03904.herokuapp.com/signup
 
@@ -26,11 +30,10 @@ This is the 8th and Final Project of the Microverse Ruby on Rails Curriculum at 
 
 
 ## Contributors
-### sumancrest0001 (https://github.com/sumancrest0001)
+### 👤 sumancrest0001 (https://github.com/sumancrest0001)
 
-### noomdalv (https://github.com/noomdalv)
+### 👤 noomdalv (https://github.com/noomdalv)
 
+## 📝 License
 
-#### License
-
-MIT Licensed
+This project is [MIT](https://opensource.org/licenses/MIT) licensed.
