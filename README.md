@@ -1,10 +1,11 @@
-## Ruby On Rails: Micro-Facebook
+## Ruby On Rails: Mini-Facebook
 
-## Microverse
+<b>Microverse<b/>
 
 This is the 8th and Final Project of the Microverse Ruby on Rails Curriculum at Microverse - @microverseinc
 
     This project consists of building a Facebook clone with minimal features using Rails 5
+    
 ## Features of the App
     User [friendships, posts,comments, likes] modules and functionalities.
     The project was completed using Bootstrap, Devise, RSpec, Omniauth and PostgreSQL.
@@ -17,7 +18,8 @@ This is the 8th and Final Project of the Microverse Ruby on Rails Curriculum at 
   https://ancient-woodland-03904.herokuapp.com/signup
 
 ## Languages Used: 
-### Ruby, HTML & CSS
+# Ruby
+# HTML & CSS
 
 ## How to install
 
@@ -30,9 +32,12 @@ This is the 8th and Final Project of the Microverse Ruby on Rails Curriculum at 
 
 
 ## Contributors
-### 👤 sumancrest0001 (https://github.com/sumancrest0001)
 
-### 👤 noomdalv (https://github.com/noomdalv)
+- Github: [@sumancrest0001](https://github.com/sumancrest0001)<br />
+  Email: suman.crest0001@gmail.com
+
+- Github: [@noomdalv](https://github.com/noomdalv)<br />
+  Email: vladlunasan@gmail.com
 
 ## 📝 License
 
