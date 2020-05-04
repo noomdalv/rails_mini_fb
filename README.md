@@ -18,8 +18,13 @@ This is the 8th and Final Project of the Microverse Ruby on Rails Curriculum at 
   https://ancient-woodland-03904.herokuapp.com/signup
 
 ## Languages Used: 
-# Ruby
-# HTML & CSS
+- Ruby
+- HTML & CSS
+
+## Future Features
+
+- User photo storage
+- User communities
 
 ## How to install
 
@@ -30,6 +35,12 @@ This is the 8th and Final Project of the Microverse Ruby on Rails Curriculum at 
 5. run bundle install
 6. run rails server
 
+## Run Tests
+
+```console
+rails test
+```
+ 
 
 ## Contributors
 
