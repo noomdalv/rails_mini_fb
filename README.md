@@ -1,1 +1,1 @@
-# rails_final_project
+# Rails Mini FB
