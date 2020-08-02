@@ -3,16 +3,11 @@
   <% @users.each do |user| %>
   <% if user != current_user && !current_user.received_requests(user) %>
     <div align="left" class="row user-info">
-      <div class="col-md-8 user-gravatar">
-        <%= gravatar_for(current_user, 120) %>
+      <div class="col-md-3 user-gravatar">
+        <%= gravatar_for(user, 100) %>
         <div class="user-name">
           <b>Name:</b>
           <%= user.name %>
-        </div>
-
-        <div class="user-email">
-          <b>Email:</b>
-          <%= user.email %>
         </div>
       </div>
       <%= render partial: 'shared/friendship', locals: {user: user} %>
