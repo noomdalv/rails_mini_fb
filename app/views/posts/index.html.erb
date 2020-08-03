@@ -1,15 +1,13 @@
 <main class="container-fluid">
   <div class="row">
     <div class="col-md-3 profile-section text-center">
-      <h3>User Profile</h3>
-      <h1>
-        <%= gravatar_for(current_user, 150)%>
+      <h3>My Profile</h3>
+        <%= image_tag(gravatar_for(current_user, 150), alt: current_user.name, class: 'user-image') %>
         <h3><%= current_user.name %></h3>
-      </h1>
-      <div class= "divider"> </div>
+      <div class= "horizontal-line"></div>
       <div class="friends-profile-image">
         <% friend_profiles.each do |friend_profile| %>
-          <%= gravatar_for(friend_profile, 80)%>
+          <%= image_tag(gravatar_for(friend_profile, 80), alt: friend_profile.name, class: 'user-image') %>
         <% end %>
       </div>
     </div>
@@ -17,41 +15,23 @@
     <div class="col-md-6 bg-success new-post">
       <div class="row create-post">
         <%= form_for @post do |f| %>
-        <%= f.text_area :body, class: 'form-control', placeholder: "What's in your mind?"%><br>
+          <%= f.text_area :body, class: 'form-control', placeholder: "What's in your mind?"%><br>
 
-        <%= f.submit "Post", class: "btn btn-primary btn-md pull-right" %>
-        <span class="picture">
-          <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
-        </span>
-      <% end %>
-    </div>
-
-    <% @posts.each do |post| %>
-      <div class="row post">
-        <div class="col-md-12">
-          <div class="well post-container">
-            <div class="post-user">
-              <small>
-                <b>Author:</b>
-                <strong><%= link_to post.user.name, user_path(post.user)%></strong>,
-                <%= time_ago_in_words(post.created_at) %> ago.
-              </small>
-            </div>
-
-            <div class="post-body">
-              <%= post.body %>
-              <%= image_tag post.picture.url if post.picture? %>
-            </div>
-          </div>
-          <%= render partial: 'shared/like_comment', locals: {post: post} %>
-        </div>
+          <%= f.submit "Post", class: "btn btn-primary btn-md pull-right" %>
+          <span class="picture">
+            <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+          </span>
+        <% end %>
       </div>
-    <%end %>
-    <%= will_paginate %>
-  </div>
 
-  <div class="col-md-2 ads-section">
-    <h1>Ads Section</h1>
+      <% @posts.each do |post| %>
+        <div class="row post">
+          <div class="col-md-12">
+           <%= render partial: 'shared/post', locals: {post: post} %>
+          </div>
+        </div>
+      <%end %>
+      <%= will_paginate %>
+    </div>
   </div>
-</div>
 </main>

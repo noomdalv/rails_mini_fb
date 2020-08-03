@@ -4,10 +4,9 @@
   <% if user != current_user && !current_user.received_requests(user) %>
     <div align="left" class="row user-info">
       <div class="col-md-3 user-gravatar">
-        <%= gravatar_for(user, 100) %>
+      <%= image_tag(gravatar_for(user, 50), alt: user.name, class: 'author-image') %>
         <div class="user-name">
-          <b>Name:</b>
-          <%= user.name %>
+          <strong><%= user.name %></strong>
         </div>
       </div>
       <%= render partial: 'shared/friendship', locals: {user: user} %>

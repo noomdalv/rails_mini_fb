@@ -31,24 +31,8 @@
     </div>
 
     <% @user_posts.each do |post| %>
-      <div class="row post">
-        <div class="col-md-12">
-          <div class="well post-container">
-            <div class="post-user">
-              <small>
-                <b>Author:</b>
-                <strong><%= link_to post.user.name, user_path(post.user)%></strong>,
-                <%= time_ago_in_words(post.created_at) %> ago.
-              </small>
-            </div>
-
-            <div class="post-body">
-              <%= post.body %>
-              <%= image_tag post.picture.url if post.picture? %>
-            </div>
-          </div>
-          <%= render partial: 'shared/like_comment', locals: {post: post} %>
-        </div>
+      <div class="col-md-12 post">
+        <%= render partial: 'shared/post', locals: {post: post} %>
       </div>
     <%end %>
   </div>

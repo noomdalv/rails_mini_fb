@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :users
   resources :contents
   resources :posts
+  delete '/dislike', to: 'likes#unlike'
   resources :comments, only: [:create]
   resources :likes
   resources :friendships, only: [:create, :destroy, :index]

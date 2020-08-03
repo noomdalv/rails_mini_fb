@@ -1,6 +1,5 @@
 <div class="horizontal-line"><div>
-<div class="row like-comment">
-	<div>
+	<div class="row like-comment">
 		<% if current_user.likes?(post) %>
 			<%= form_for(current_user.likes.find_by(post_id: post.id),
 					method: :delete) do |f| %>
@@ -13,8 +12,5 @@
 				<%= f.submit "Like (#{post.likes.count})", class: 'unlike-button' %>
 			<% end %>
 		<% end %>
+	  <%= link_to "Comment", post_path(post), class: 'comment-button' %>
 	</div>
-	<div>
-	<%= link_to "Comment", post_path(post), class: ' comment-button' %>
-	</div>
-</div>
