@@ -1,0 +1,31 @@
+<div class="single-post">
+  <div class="post-header">
+  <%= image_tag(gravatar_for(post.user, 50), alt: post.user.name, class: 'author-image') %>
+    <div class="header-text">
+      <div class="author-name"> <%= link_to post.user.name.humanize, user_path(post.user) %></div>
+      <p class="post-date"><%= time_ago_in_words(post.created_at) %> ago</p>
+    </div>
+  </div>
+  <div class="post-body">
+    <p><%= post.body %></p>
+    <%= image_tag(post.picture.url, class: 'post-image') if post.picture?%>
+  </div>
+  <div class="horizontal-line"><div>
+	<div class="like-comment">
+    <% if current_user.likes?(post) %>
+      <%= link_to dislike_path(post_id: post.id), method: :delete, class: 'unlike-button unlike-button-color' do %>
+        <i class="fa fa-thumbs-down icon"></i>
+        <span>Unlike</span>
+      <% end %>
+		<% else %>
+    <%= link_to dislike_path(post_id: post.id), method: :post, class: 'like-button button-color' do %>
+      <i class="fa fa-thumbs-up icon"></i>
+      <span>Like</span>
+    <% end %>
+		<% end %>
+	  <%= link_to post_path(post), method: :get, class: 'comment-button button-color' do %>
+      <i class="fa fa-comment icon"></i>
+      <span>Comment</span>
+    <% end %>
+	</div>
+</div>

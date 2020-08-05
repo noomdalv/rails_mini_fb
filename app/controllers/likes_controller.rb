@@ -1,14 +1,21 @@
 # frozen_string_literal: true
 
 class LikesController < ApplicationController
+  before_action :set_post, only: [:create, :unlike]
+
   def create
-    @like = current_user.likes.build(post_id: params[:post_id])
-    redirect_back fallback_location: root_path if @like.save
+    @post.likes.where(user_id: current_user.id).first_or_create
+    redirect_back(fallback_location: root_path)
   end
 
-  def destroy
-    like = Like.find(params[:id])
-    like.destroy
-    redirect_back fallback_location: root_path
+  def unlike
+    @post.likes.where(user_id: current_user.id).destroy_all
+    redirect_back(fallback_location: root_path)
+  end
+
+  private
+
+  def set_post
+    @post = Post.find(params[:post_id])
   end
 end

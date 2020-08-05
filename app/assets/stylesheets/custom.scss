@@ -111,13 +111,95 @@ body {
 .create-post {
   padding: 20px;
 }
-.post {
-  margin-top: 40px;
+// Single post section 
+
+.single-post {
+  width: 80%;
+  -webkit-box-shadow: -3px 2px 13px -3px rgba(99,99,98,1);
+  -moz-box-shadow: -3px 2px 13px -3px rgba(99,99,98,1);
+  box-shadow: -3px 2px 13px -3px rgba(99,99,98,1);
+  margin: 20px auto;
+  padding: 10px;
+  border-radius: 5px;
 }
-.post-user {
-  margin-top: -15px;
-  background-color: #f7f7f7;
+
+.post-header {
+  display: flex;
+  direction: row;
+  margin-bottom: 15px;
 }
+
+.author-image {
+  margin-right: 15px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.author-name {
+  font-size: 1.8rem;
+  color: #000;
+  font-weight: 700;
+}
+.author-name:hover,
+.unlike-button-color {
+  color: #3b5998;
+}
+
+.post-date {
+  font-size: 1.4rem;
+  color: rgba(122, 122, 122, 0.952);
+  font-weight: 700;
+} 
+
+.post-body {
+  margin-left: 65px;
+  margin-bottom: 15px;
+}
+.post-image {
+  width: 300x;
+  height: 300px;
+}
+
+.horizontal-line {
+  content: '';
+  display: block;
+  border-top: 1px solid #000;
+}
+
+.like-comment {
+  padding: 5px;
+  display: flex;
+  direction: row;
+  justify-content: space-between;
+}
+
+.icon {
+  margin-right: 5px;
+}
+
+// Like comment button
+.like-button,
+.unlike-button,
+.comment-button {
+  width: 30%;
+  border: none;
+  border-radius: none;
+  padding: 5px 0;
+  text-align: center;
+}
+
+.like-button:hover,
+.unlike-button:hover,
+.comment-button:hover 
+{
+  background-color: #e1e2e3;
+  text-decoration: none;
+}
+
+.button-color {
+  color: #333333;
+}
+
 .profile-section {
   height: 50vh;
 }
@@ -127,11 +209,7 @@ body {
 .input-field {
   height: 100px;
 }
-.like-comment {
-  margin-top: -15px;
-  padding-left: 3px;
-  padding-right: 15px;
-}
+
 .post-container {
   background-color: white;
   border-radius: 2px;
@@ -165,8 +243,14 @@ body {
   border-radius: 2px;
 }
 
-.login-form {
+.login-section {
   margin-top: 10px;
+}
+
+.login-form {
+  display: flex;
+  direction: row;
+  align-items: center;
 }
 #inputEmail,
 #inputPassword {
@@ -174,6 +258,7 @@ body {
   border: 1px solid #4f4f4d;
   border-radius: 0;
   background-color: #fcf8bb;
+  margin-right: 10px;
 }
 
 .signin-btn {

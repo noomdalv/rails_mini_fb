@@ -1,6 +1,6 @@
 class CustomFailure < Devise::FailureApp
   def redirect_url
-    new_user_registration_path
+    new_content_path
   end
 
   def respond

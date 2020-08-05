@@ -4,7 +4,7 @@
   <% elsif pending_requests(user) %>
     <button disabled>Request Pending</button>
     <%= button_to "Cancel Request",
-    { controller: 'friendships', action: 'delete_pending_request', friend_id: user.id}, method: :post %>
+    { controller: 'friendships', action: 'delete_pending_request', friend_id: user.id}, class: 'btn-danger', method: :post %>
   <% else %>
     <%= form_for @friendship do |f| %>
      <div class="row">
